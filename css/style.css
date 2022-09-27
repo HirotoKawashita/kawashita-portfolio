@@ -1,0 +1,700 @@
+@charset "UTF-8";
+
+.toptitle {
+    letter-spacing: 5px;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.subtitle {
+    letter-spacing: 5px;
+}
+
+.sp-br {
+    display: none;
+}
+
+#page_top {
+    width: 90px;
+    height: 90px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+    z-index: 4;
+}
+
+#page_top a {
+    position: relative;
+    display: block;
+    width: 90px;
+    height: 90px;
+    text-decoration: none;
+}
+
+#page_top a::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f102';
+    font-size: 25px;
+    color: #3f98ef;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -40px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+
+#page_top a::after {
+    content: 'PAGE TOP';
+    font-size: 13px;
+    color: #fff;
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    color: #3f98ef;
+}
+
+/* fadeIn */
+.fadeIn{
+    animation-name: fadeInAnime;
+    animation-duration:3s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeInAnime{
+      from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+    }
+    
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+    .fadeInTrigger{
+        opacity: 0;
+    }
+    
+
+/* ヘッダー */
+
+.header-fix {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.header__left a:hover {
+    opacity: 0.5;
+}
+
+.header__right {
+    line-height: 3;
+}
+
+.li-list {
+    display: flex;
+}
+
+.header__right li a {
+    display: inline-block;
+    height: 40px;
+}
+
+
+.li-list li a{
+    /*線の基点とするためrelativeを指定*/
+  position: relative;
+}
+
+.li-list li.current a,
+.li-list li a:hover{
+  color:#0481A2;
+}
+
+.li-list li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background:#0481A2;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);
+    transform-origin: center top;/*上部中央基点*/
+}
+
+.li-list li.current a::after,
+.li-list li a:hover::after {
+    transform: scale(1, 1);
+}
+
+.sp-menu {
+    display: none;
+}
+
+/* ファーストビュー */
+.fv {
+    position: relative;
+    height: 100vh;
+}
+
+.my-introduction {
+    position: absolute;
+    top: 45%;
+}
+
+.myname {
+    margin-bottom: 15%;
+}
+
+/*========= タイピング ===============*/
+
+.TextTyping span {
+    display: none;
+  }
+  
+  /*文字列後ろの線の設定*/
+  .TextTyping::after {
+    content: "|";
+    animation: typinganime 1s ease infinite;
+  }
+  
+  @keyframes typinganime{
+    from{opacity:0}
+    to{opacity:1}
+  }
+
+.myname-f {
+    font-size: 2rem;
+    letter-spacing: 10px
+}
+
+.myname-s {
+    letter-spacing: 5px;
+    text-align: right;
+}
+
+/* About */
+.about {
+    display: flex;
+    margin-bottom: 100px;
+    position: relative;
+    height: 400px;
+}
+
+.about-left {
+    width: 40%;
+    position: absolute;
+    top: 50px;
+}
+
+.about-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    background-color: #f8f9ff;
+    padding: 40px;
+}
+
+.about-title,
+.sec-text {
+    padding-bottom: 45px;
+}
+
+.sec-text {
+    line-height: 2;
+    letter-spacing: 3px;
+}
+
+.about-viewmore {
+    text-align: right;
+}
+
+.about-viewmore a:hover {
+    opacity: 0.5;
+}
+
+/* Works */
+.works {
+    background-color: #f8f9ff;
+    padding-top: 40px;
+    padding-bottom: 120px;
+}
+
+.works-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.works-achievement {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1080px;
+    margin-bottom: 80px;
+}
+
+.works-achievement__inner {
+    width: calc(100%/3);
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.works-achievement__inner a .over {
+    background-color: #fff;
+    bottom: 15px;
+    color: #333333;
+    left: 15px;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    right: 15px;
+    text-align: center;
+    top: 15px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scale(0.95);
+    z-index: 1;
+  }
+  
+  .works-achievement__inner a .over span {
+    font-style: normal;
+    font-size: 16px;
+    font-weight: bold;
+    left: 0; 
+    line-height: 28px;
+    letter-spacing: 5px;
+    margin-top: -14px;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s;
+    transform: translate(0, 20px);
+    width: 100%;
+  }
+  
+  .works-achievement__inner a:hover .over {
+    opacity: 0.8;
+    /* transform: scale(1); */
+  }
+  
+  .works-achievement__inner a:hover .over span {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+.works-viewmore {
+    text-align: center;
+}
+
+.works-viewmore a {
+    font-size: 1.25rem;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px 15px;
+    background-color: #f8f9ff;
+    color: #000000;
+    border: dashed 2px #000000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: .4s;
+    padding: 20px 60px;
+}
+
+.works-viewmore a:hover {
+    border-style: solid;
+    color: #000000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Contact */
+#contact {
+    margin: 100px auto;
+}
+
+.contact-title {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.contact-text,
+.contact-page {
+    text-align: center;
+}
+
+.contact-text {
+    margin-bottom: 100px;
+}
+
+.contact-page a {
+    background-color: #f8f9ff;
+    border: 2px solid #f8f9ff;
+    color: #000;
+    border-radius: 30px;
+    padding: 20px 60px;
+}
+
+.contact-page a:hover {
+    background-color: #fff;
+    border: 2px solid #f8f9ff;
+    color: #000;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+/* footer */
+.footer {
+    background-color: #f8f9ff;
+    padding: 30px;
+
+}
+
+.footer p {
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* ここからABOUTページ */
+
+.about-page {
+    text-align: center;
+    margin-top: 120px;
+    align-items: center;
+
+}
+
+.about-information {
+    align-items: center;
+    display: flex;
+}
+
+.about-information h3, .heading h3 {
+    border-left: 10px solid #3f98ef;
+    padding-left: 10px;
+    font-size: 1.5rem;
+}
+
+.about-information p, .heading p {
+    padding-left: 15px;
+}
+
+.about-gizi::before {
+    content: '';
+    height: 1px;
+    width: 15px;
+    background-color: #333;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.about-gizi::after {
+    content: '';
+    height: 1px;
+    width: 15px;
+    background-color: #333;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+/* プロフィール */
+.profile {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.profile__left {
+    background-color: #f8f9ff;
+    width: 48%;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.profile__left span {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.profile__left p {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.profile__right {
+    width: 48%;
+    margin-top: 5%;
+}
+
+/* スキル */
+.skill-contents {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.skill-content {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.skill-content img {
+    height: 200px;
+}
+
+.skill-contents h4 {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.skill-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.skill-item {
+    display: flex;
+    width: 48%;
+    margin-bottom: 30px;
+}
+
+.skill-img {
+    width: 60px;
+    margin-right: 20px;
+}
+
+.skill-text {
+    flex: 1;
+}
+
+.skill-text h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.skill-text p {
+    font-size: 0.85rem;
+}
+
+/* 経歴 */
+
+.carrer {
+    margin-bottom: 100px;
+}
+
+.carrer .about-information {
+    margin-bottom: 60px;
+}
+
+.carrer-fl {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carrer__left {
+    width: 15%;
+    padding-top: 30px;
+}
+
+.carrer__right {
+    width: 85%;
+    padding-left: 5%;
+    border-left: 2px solid #ddd;
+    padding-top: 30px;
+    position: relative
+}
+
+.carrer__right::before {
+    content: '';
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #3f98ef;
+    display: block;
+    position: absolute;
+    left: -8px;
+    top: 37px;
+}
+
+
+/* ここから制作物一覧ページ */
+.works-page {
+    text-align: center;
+    margin-top: 120px;
+    align-items: center;
+}
+
+.works-content {
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.works-content__inner  {
+    position: relative;
+    width: 60%;
+}
+
+.works-content__inner a .over {
+    background-color: #fff;
+    bottom: 3%;
+    color: #333333;
+    left: 3%;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    right: 3%;
+    text-align: center;
+    top: 3%;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scale(0.95);
+    z-index: 1;
+  }
+  
+  .works-content__inner a .over span {
+    font-style: normal;
+    font-size: 16px;
+    font-weight: bold;
+    left: 0; 
+    line-height: 28px;
+    letter-spacing: 5px;
+    margin-top: -14px;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s;
+    transform: translate(0, 20px);
+    width: 100%;
+  }
+  
+  .works-content__inner a:hover .over {
+    opacity: 0.8;
+    /* transform: scale(1); */
+  }
+  
+  .works-content__inner a:hover .over span {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+
+.works-content h3 {
+    padding-left: 10px;
+    border-left: 10px solid #3f98ef;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+}
+
+/* ここから作品紹介 */
+.works-name {
+    text-align: center;
+    align-items: center;
+    width: 80%;
+    margin: 120px auto 45px auto;
+}
+
+.works-name h3, .works-name h2 {
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+.main-image {
+    text-align: center;
+}
+
+.main-image img {
+    width: 500px;
+}
+
+.heading {
+    margin-bottom: 45px;
+}
+
+.heading h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.works-name h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.works-name h3, .works-name h2 {
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem 2rem 1.5rem 130px;
+    border: 2px solid #000;
+  }
+  
+  .works-name h3::before, .works-name h2:before {
+    position: absolute;
+    top: -150%;
+    left: -100px;
+    width: 200px;
+    height: 300%;
+    content: '';
+    -webkit-transform: rotate(25deg);
+    transform: rotate(25deg);
+    background: #3f98ef;
+  }
+  
+  .works-name h3 span, .works-name h2 span {
+    font-size: 40px;
+    font-size: 3rem;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: block;
+    padding-top: 3px;
+    padding-left: 16px;
+    color: #fff;
+  }
+
+  .wors-list {
+      margin-top: 40px;
+  }
+  /* ブログ */
+
+/* .l-wrapper {
+	padding-left: 3vw;
+	padding-right: 3vw;
+} */
+
+
